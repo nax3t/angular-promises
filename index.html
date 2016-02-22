@@ -3,10 +3,17 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Star Wars API</title>
+	<link rel="stylesheet" href="css/style.css">
 </head>
 <body ng-controller="swCtrl">
-	{{films}}
-	
+	<h1>Movies that Luke SkyWalker stars in:</h1>
+	<div ng-repeat="film in films">
+		<p class="error">{{film.error}}</p>
+		<h2>{{film.title}}</h2>
+		<p><strong>Episode {{film.episode_id}}</strong></p>
+		<p>{{film.opening_crawl}}</p>
+	</div>
+
 	<!-- JavaScripts -->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
 	<script src="js/app.js"></script>
