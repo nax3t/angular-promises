@@ -1,8 +1,20 @@
-app.service('SWService', ['$http', '$q', function($http, $q) {
-	// simple one line API request using $http and the omdb API
+app.service('SWService', ['$http', '$q', '$timeout', function($http, $q, $timeout) {
+
+	// example of asynchronous code using $timeout
+	this.async = function() {
+		console.log('before timeout');
+		$timeout(function() {
+			console.log('timed out function');
+		}, 3000);
+		console.log('after timeout');
+	};
+
+	// simple API request using $http and the omdb API
 	this.getMovie = function() {
-		// return the entire line because $http gives us a promise by default
-		return $http({method: 'GET', url: 'http://www.omdbapi.com/?s=frozen'});
+		// return the $http request because $http gives us a promise by default
+		return $http({method: 'GET', url: 'http://www.omdbapi.com/?s=frozen'}).then(function(response){
+			return response.data.Search;
+		});
 	};
 
 	// create a getFilms function
@@ -40,4 +52,5 @@ app.service('SWService', ['$http', '$q', function($http, $q) {
 		// return the promise
 		return deferred.promise;
 	};
+
 }]);
