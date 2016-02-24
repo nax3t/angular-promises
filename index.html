@@ -4,14 +4,28 @@
 	<meta charset="UTF-8">
 	<title>Star Wars API</title>
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 </head>
 <body ng-controller="swCtrl">
-	<h1>Movies that Luke Skywalker stars in:</h1>
-	<div ng-repeat="film in films">
-		<p class="error">{{film.error}}</p>
-		<h2>{{film.title}}</h2>
-		<p><strong>Episode {{film.episode_id}}</strong></p>
-		<p>{{film.opening_crawl}}</p>
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<h1>API Request to IMDB</h1>
+				<ul ng-repeat="movie in movies">
+					<li>{{movie.Title}}</li>
+				</ul>
+			</div>
+			<div class="col-md-6">
+				<h1>Movies that Luke Skywalker stars in:</h1>
+				<p class="error">{{error}}</p>
+				<div ng-repeat="film in films">
+					<h2>{{film.title}}</h2>
+					<p><strong>Episode {{film.episode_id}}</strong></p>
+					<p>{{film.opening_crawl}}</p>
+				</div>
+			</div>
+		</div>
 	</div>
 
 	<!-- JavaScripts -->
