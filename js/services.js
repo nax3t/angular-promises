@@ -5,13 +5,14 @@ app.service('SWService', ['$http', '$q', '$timeout', function($http, $q, $timeou
 		console.log('before timeout');
 		$timeout(function() {
 			console.log('timed out function');
-		}, 3000);
+		}, 2000);
 		console.log('after timeout');
 	};
 
 	// simple API request using $http and the omdb API
 	this.getMovie = function() {
 		// return the $http request because $http gives us a promise by default
+		// notice that there's no need for deferred.resolve(), or using $q.defer() at all
 		return $http({method: 'GET', url: 'http://www.omdbapi.com/?s=frozen'}).then(function(response){
 			return response.data.Search;
 		});
