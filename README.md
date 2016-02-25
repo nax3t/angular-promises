@@ -27,7 +27,7 @@ Angular gives us the **$q** library which allows us to make promises from scratc
 ## How to make a promise with $q
 
 ```
-var deferred = $q;
+var deferred = $q.defer();
 ```
 Simple right? Now we have a deferred object with a promise key and we can return that promise after we're done dealing with the async code.
 
