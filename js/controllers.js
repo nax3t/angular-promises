@@ -13,8 +13,19 @@ app.controller('swCtrl', ['$scope', 'SWService', function($scope, SWService) {
 	SWService.getFilms()
 		.then(function(films) {
 			$scope.films = films;
-		}).catch(function (error) {
+		}).catch(function(error) {
 			$scope.error = error.message;
 		});
+
+	// call to itunes
+	SWService.itunes('bob marley').then(function(results) {
+		// debugger
+	});
+
+	// UI-Grid sample data
+	$scope.myData = [{
+		"firstName": "Cox",
+		"lastName": "Carney"
+	}];
 
 }]);

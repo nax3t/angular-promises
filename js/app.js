@@ -1,1 +1,1 @@
-var app = angular.module('swApp', []);
+var app = angular.module('swApp', ['ui.grid']);

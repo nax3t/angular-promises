@@ -54,4 +54,10 @@ app.service('SWService', ['$http', '$q', '$timeout', function($http, $q, $timeou
 		return deferred.promise;
 	};
 
+	this.itunes = function(name) {
+		return $http.jsonp('https://itunes.apple.com/search?term='+name+'&callback=JSON_CALLBACK').then(function(results){
+			// debugger
+		});
+	};
+
 }]);
